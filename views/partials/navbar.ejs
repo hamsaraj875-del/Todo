@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+  <div class="head">
+    <div class="subhead">
+      <div class="name">
+      </div>
+      <div class="cursor">
+      </div>
+    </div>
+    <div class="buttonDiv">
+      <a href="/"><button class="<%=page=='home' ? 'btnActive' : 'btn' %>"><span class="icon">🏠</span><span class="text">Home</span></button></a>
+      <a href="/add"><button class="<%=page=='add' ? 'btnActive' : 'btn' %>"><span class="icon">🆕</span><span class="text">Add</span></button></a>
+      <a href="/deleteAll"><button class="<%=page=='delete' ? 'btnActive' : 'btn' %>"><span class="icon">🗑️</span><span class="text">Delete All</span></button></a>
+      <a href="/logout"><button class="<%=page=='delete' ? 'btnActive' : 'btn' %>"><span class="icon">🔓</span><span class="text">Logout</span></button></a>
+      <div class="account">
+        <a href="/account">
+        <img src="https://cdn-icons-png.flaticon.com/512/8345/8345328.png" alt="account" class="accountImage">
+        </a>
+      </div>
+    </div>
+    <hr>
+  </div>

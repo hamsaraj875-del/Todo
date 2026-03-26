@@ -1,0 +1,61 @@
+<%-include("partials/navbar")%>
+<!-- <button class="ai" type="hidden" onclick="aiWake()">✧</button> -->
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdMFKJGbQZoSPkgITz2YmBebykZJK8nGUgjzxEegR7cGGEpXw/viewform?usp=publish-editor"  target="-main"><div class="contact">
+  ☎
+</div></a>
+<div class="aiChat">
+  <div class="aiHead">Zara Assistance</div>
+  <div class="aiOutput" id="chatBox"></div>
+  <div class="aiInput">
+    <div class="Input">
+      <input type="text" placeholder="Enter your query" class="userQuery">
+      <button class="aiAns" type="button">➤</button>
+    </div>
+  </div>
+</div>
+<div class="boxCollection">
+  <% let count = 0 %>
+  <% if(todoDetails.length>0){%>
+    <%todoDetails.forEach(details=>{%>
+      <div class="boxes">
+        <div class="dateAndTime">
+          <div class="date"><%=details.date%></div>
+          <div class="time"><%=details.time%></div>
+        </div>
+        <div class="todoName"><%=details.todoName%></div>
+        <div class="description"><%=details.description%></div>
+        <div class="fileContainer">
+          <div class="file">
+            <img src="/uploads/<%=details.fileName%>" class="image">
+          </div>
+          <%if(details.fileName!=="false"){%>
+            <div class="fileContent">
+              This is the file provided for the todo remainder!
+            </div>
+          <%}else{%>
+            <div class="fileContent">
+              No image provided!.
+            </div>
+          <%}%>
+        </div>
+        <div class="editAndDelete">
+          <a href="/edit/<%=details._id%>"><button class="edit">Edit</button></a>
+          <a href="/delete/<%=details._id%>"><button class="delete">Delete</button></a>
+        </div>
+      </div>
+    <%})%>
+    <% if(count == 0){%>
+        <div class="toDoList">
+          <a href="/add"><button class="button">+</button></a>
+          <%count++%>
+        </div>
+      <%}%>
+  <%}else{%>
+    <div class="toDoList">
+      <a href="/add"><button class="button">+</button></a>
+    </div>
+  <%}%>
+</div>
+<Script src="/script.js"></Script>
+</body>
+</html>

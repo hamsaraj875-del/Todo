@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/sign.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="whole">
+    <div class="signup">
+      <div class="heading">
+        <div class="subhead">
+          Welcome for the todo
+        </div>
+      </div>
+      <form method="POST">
+        <%if(typeof error!='undefined'){%>
+          <div class="errorBlock">
+            <ul>
+              <% error.forEach(e=>{%>
+                <li><%=e%></li>
+              <%})%>
+            </ul>
+          </div>
+        <%}%>
+        <div class="firstAndSecond">
+          <input type="text" placeholder="Enter your first Name" name="firstName" value="<%=typeof error!='undefined'?oldInput.firstName:'' %>" required>
+          <input type="text" placeholder="Enter your second Name (Optional)" name="secondName" value="<%=typeof error!='undefined'?oldInput.secondName:'' %>" required>
+        </div>
+        <div class="email">
+          <input type="email" placeholder="Enter your email" name="email" value="<%=typeof error!='undefined'?oldInput.email:'' %>" required>
+        </div>
+        <div>
+          <input type="password" placeholder="Enter your password" name="password" value="<%=typeof error!='undefined'?oldInput.password:'' %>" required>
+        </div>
+        <div>
+          <input type="password" placeholder="Confirm your password" name="confirmPassword" value="<%=typeof error!='undefined'?oldInput.password:'' %>" required>
+        </div>
+        <%if(otp){%>
+          <div>
+            <input type="text" placeholder="Enter your otp(expires in 2 minutes)" name="otpp" required>
+          </div>
+        <%}%>
+        <div class="buttons">
+          <button type="submit" formaction="/OTP" value="Sign In"><span>Get OTP  </span><i class="fa-solid fa-right-to-bracket"></i></button>       
+          <button type="submit" formaction="/sign" value="Sign In"><span>Sign UP  </span><i class="fa-solid fa-right-to-bracket"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

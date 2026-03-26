@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+  <div class="wholeLogin">
+    <div class="heading">
+      Welcome Back!..
+    </div>
+    <div class="login">
+      <div class="details">
+        Details
+      </div>
+      <form action="/login" method="POST">
+        <% if(error) { %>
+          <div class="errorBlock">
+            <ol>
+              <li>Invalid username or password!</li>
+            </ol>
+          </div> 
+        <% } %>
+
+        <input type="email" placeholder="Enter your email" name="email" 
+              value="<%= (typeof oldInput !== 'undefined') ? oldInput.email : '' %>" required>
+
+        <input type="password" placeholder="Enter your password" name="password" 
+              value="<%= (typeof oldInput !== 'undefined') ? oldInput.password : '' %>" required>
+
+        <a href="/sign">Signup</a>
+        <div class="subButton">
+          <input type="submit" value="Login">
+        </div>
+      </form>
+    </div>
+</div>
+</body>
+</html>

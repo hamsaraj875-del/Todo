@@ -1,0 +1,35 @@
+<%-include("partials/navbar")%>
+<%if(!edit){%>
+  <div class="form">
+    <div class="Details">
+      <div class="headOfText">
+        Details...
+      </div>
+      <form action="/save" method="POST" enctype="multipart/form-data">
+        <input type="text" style="width:250px;" name="todoName" placeholder="Name of Todo" required>
+        <input type="time" placeholder="Enter the time" name="time" required>
+        <input type="date" placeholder="Enter the date" name="date" required>
+        <input type="file" name="photo" accept="image/png,image/jpeg,image/jpg" single >
+        <textarea placeholder="Write description on Todo.." name="description" required></textarea>
+        <input type="submit">
+      </form>
+  </div>
+<%}else{%>
+  <div class="form">
+    <div class="Details">
+      <div class="headOfText">
+        Details...
+      </div>
+      <form action="/replace/<%=todoDetails._id%>" method="POST" enctype="multipart/form-data">
+        <input type="text" style="width:250px;" name="todoName" placeholder="Name of Todo" value="<%=todoDetails.todoName%>" required>
+        <input type="time" placeholder="Enter the time" name="time" value="<%=todoDetails.time%>" required>
+        <input type="date" placeholder="Enter the date" name="date" value="<%=todoDetails.date%>" required>
+        <input type="file" name="photo" accept="image/jpg,image/jpef,image/png" single>
+        <textarea placeholder="Write description on Todo.." name="description"  required><%=todoDetails.description%></textarea>
+        <input type="submit" value="Update">
+      </form>
+  </div>
+<%}%>
+<script src="/script.js"></script>
+</body>
+</html>
