@@ -16,7 +16,7 @@ const login = require("./login");
 const store = require("../Models/session");
 
 //declaration of path.
-const port = process.env.PORT;
+const port = process.env.PORT||3000;
 
 //Input file handler
 const fileStorage= multer.diskStorage({

@@ -80,7 +80,7 @@ exports.signup = [
   .notEmpty()
   .withMessage("OTP cannot be empty")
   .custom((value,{req})=>{
-    if(!req.session.otp) throw new Error("OTP is not found Try Agains");
+    if(!req.session.otp) throw new Error("OTP is not found Try Again ");
     if(value!=req.session.otp) throw new Error("OTP is expired or mismatched");
     return true;
   }),

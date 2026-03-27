@@ -47,17 +47,26 @@ exports.displayData=(req,res,next)=>{
 
 //Deleting all the details.
 exports.deleteAll=(req,res,next)=>{
-  database.deleteMany({}).then(()=>{
-    database.find().then((todoDetails)=>{
+  database.deleteMany({}).then((err)=>{
+    if(err){
+      res.redirect("/home");
+    }
+    database.find().then((todoDetails),(err)=>{
+      if(err){
+        res.redirect("/home");
+      }
       res.render("home",{todoDetails,page:"home"});
-    });
-  });
+    })
+  })
 }
 
 //deleting of individual boxes 
 exports.delete=(req,res,next)=>{
   const base = req.params.id;
-  database.findByIdAndDelete(base).then(()=>{
+  database.findByIdAndDelete(base).then((err)=>{
+    if(err){
+      res.redirect("/home");
+    }
     database.find().then(()=>{
       res.status(302);
       res.redirect("/home");
@@ -68,7 +77,10 @@ exports.delete=(req,res,next)=>{
 //editing of individual boxes
 exports.edit=(req,res,next)=>{
   const base = req.params.id;
-  database.findById(base).then((todoDetails)=>{
+  database.findById(base).then((todoDetails),(err)=>{
+    if(err){
+      res.redirect("/home");
+    }
     let edit=true;
     res.render("add",{todoDetails,page:"add",edit});
   })
