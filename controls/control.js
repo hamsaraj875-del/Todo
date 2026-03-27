@@ -47,16 +47,10 @@ exports.displayData=(req,res,next)=>{
 
 //Deleting all the details.
 exports.deleteAll=(req,res,next)=>{
-  database.deleteMany({}).then((err)=>{
+  database.deleteMany().then((err)=>{
     if(err){
       res.redirect("/home");
     }
-    database.find().then((todoDetails),(err)=>{
-      if(err){
-        res.redirect("/home");
-      }
-      res.render("home",{todoDetails,page:"home"});
-    })
   })
 }
 
