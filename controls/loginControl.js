@@ -1,22 +1,10 @@
 //external modules 
 const {check,validationResult} = require("express-validator");
 const bcrypt = require("bcrypt");
-const nodemailer = require("nodemailer");
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.EMAIL_API);
 
-console.log(process.env.EMAIL);
-console.log(process.env.EMAIL_API);
-//nodemailer setup
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true, // VERY IMPORTANT for port 465
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_API
-  }
-});
 
 //file modules
 const user = require("../Models/User");
@@ -136,19 +124,23 @@ function otpGenerator(){
   return Math.floor(100000+Math.random()*900000);
 }
 
-//otp handler
-exports.otp = async(req,res,next)=>{
-  const otpValue = otpGenerator();
+//OTP handler
+exports.otp = async (req, res, next) => {
+  console.log("🔥 OTP route hit");
+
+  const otpValue = Math.floor(100000 + Math.random() * 900000);
   req.session.otp = otpValue;
-  const {email} = req.body;
-  req.session.email = email;
-  console.log("before sending the email");
-  try{
-    await transporter.sendMail({
-      from:"Todo App",
-      to:email,
-      subject:"Your OTP",
-      html: `
+
+  const { email } = req.body;
+
+  try {
+    console.log("before sending email");
+
+    await sgMail.send({
+      to: email,
+      from: "todo.aim.09@gmail.com", // MUST be verified
+      subject: "Your OTP",
+      html:`
   <div style="background-color:#f4f4f4; padding:20px;">
     <div>
       <h2 style="text-align:center; color:#333;">🔐 Verify Your Email</h2>
@@ -180,17 +172,18 @@ exports.otp = async(req,res,next)=>{
     </div>
   </div>
 `
-    })
-    console.log("after sending the email");
-    console.log(email);
-    console.log(otpValue);
-    res.render("sign",{otp:true});
+    });
+
+    console.log("after sending email");
+
+    return res.render("sign", { otp: true });
+
+  } catch (err) {
+    console.log("❌ MAIL ERROR:", err);
+    return res.render("sign", { otp: false });
   }
-  catch(err){
-    console.log(err);
-    res.render("sign",{otp:false});
-  }
-}
+};
+
 
 //logout from the account
 exports.logout = (req,res,next)=>{
