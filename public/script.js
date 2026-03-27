@@ -49,10 +49,3 @@ aiAns.addEventListener("click",()=>{
     userQuery.value = "";
   }
 });
-
-
-async function aiResults(Question){
-  const reply = await fetch(`/chat/${Question}`);
-  const result =await reply.json();
-  chatBox.innerText = chatBox.innerText+"\n"+result.reply;
-}

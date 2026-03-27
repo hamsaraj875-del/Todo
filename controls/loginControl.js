@@ -5,6 +5,8 @@ const nodemailer = require("nodemailer");
 const dotenv = require("dotenv");
 dotenv.config();
 
+console.log(process.env.EMAIL);
+console.log(process.env.EMAIL_API);
 //nodemailer setup
 const transporter = nodemailer.createTransport({
   service:"gmail",
@@ -138,6 +140,7 @@ exports.otp = async(req,res,next)=>{
   req.session.otp = otpValue;
   const {email} = req.body;
   req.session.email = email;
+  console.log("before sending the email");
   try{
     await transporter.sendMail({
       from:"Todo App",
@@ -176,6 +179,7 @@ exports.otp = async(req,res,next)=>{
   </div>
 `
     })
+    console.log("after sending the email");
     console.log(email);
     console.log(otpValue);
     res.render("sign",{otp:true});
