@@ -9,12 +9,14 @@ console.log(process.env.EMAIL);
 console.log(process.env.EMAIL_API);
 //nodemailer setup
 const transporter = nodemailer.createTransport({
-  service:"gmail",
-  auth:{
-    user:process.env.EMAIL,
-    pass:process.env.EMAIL_API
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // VERY IMPORTANT for port 465
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_API
   }
-})
+});
 
 //file modules
 const user = require("../Models/User");
