@@ -85,7 +85,6 @@ app.get("/account",control.accountDisplay);
 const db = process.env.DB;
 
 mongoose.connect(db).then(()=>{
-  console.log("Both mongoose and database is conneceted successfully");
   app.listen(port,()=>{
     console.log(`Server is running in http://localhost:${port}`);
   });
