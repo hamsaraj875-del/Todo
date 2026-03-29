@@ -13,29 +13,32 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
+  min-height:100vh;
 }
 .heading{
   display:flex;
   justify-content:center;
   align-items:center;
-  min-width:400px;
-  min-height:120px;
+  min-width:100px;
+  min-height:100px;
 }
 .subhead{
   text-align:center;
   color:white;
-  font-size:50px;
+  font-size:40px;
   text-decoration:underline;
 }
 .signup{
-  min-width:600px;
-  min-height:700px;
+  min-width:400px;
+  min-height:500px;
   border-radius:10px;
   background-color:rgba(179, 0, 255, 0.2);
 }
 form{
   margin:0px 10px 0px 10px ;
   display:flex;
+  min-width:100px;
+  min-height:100px;
   flex-direction:column;
   justify-content:center;
   align-items:center;
@@ -46,22 +49,22 @@ form{
   min-width:550px;
   min-height:70px;
   color:rgb(255, 89, 89);
-  background-color:rgb(250, 179, 179);
+  background-color:transparent;
   font-size:23px;
   border:1px solid rgb(255, 89, 89);
 }
 input{
   margin:15px 5px 0px 5px;
   min-width:400px;
-  min-height:50px;
+  min-height:40px;
 }
 .buttons{
   display:flex;
 }
 button{
-  margin-top:20px;
-  min-width:200px;
-  min-height:40px;
+  margin:20px 10px;
+  min-width:150px;
+  min-height:30px;
   font-size:18px;
 }
 button:hover{
@@ -69,4 +72,56 @@ button:hover{
   box-shadow:0px 1px 3px rgb(255, 39, 255),
   0px 3px 6px rgb(255, 148, 255);
   border-radius:20px;
+}
+@media(max-width:540px){
+  .subhead{
+    text-align:center;
+    color:white;
+    font-size:30px;
+    text-decoration:underline;
+  }
+  
+  .signup{
+    min-width:160px;
+    min-height:300px;
+    border-radius:10px;
+    background-color:rgba(179, 0, 255, 0.2);
+  }
+  
+  input{
+    margin:8px 5px 0px 5px;
+    min-width:250px;
+    min-height:30px;
+  }
+  button{
+    margin:20px 10px;
+    min-width:100px;
+    min-height:30px;
+    font-size:18px;
+  }
+}
+@media(max-width:431px){
+  .subhead{
+    text-align:center;
+    color:white;
+    font-size:25px;
+    text-decoration:underline;
+  }
+  .signup{
+    min-width:100px;
+    min-height:250px;
+    border-radius:10px;
+    background-color:rgba(179, 0, 255, 0.2);
+  }
+  input{
+    margin:8px 5px 0px 5px;
+    min-width:200px;
+    min-height:25px;
+  }
+  button{
+    margin:10px 8px;
+    min-width:60px;
+    min-height:20px;
+    font-size:18px;
+  }
 }

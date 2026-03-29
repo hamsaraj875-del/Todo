@@ -59,12 +59,9 @@ exports.delete=(req,res,next)=>{
   const base = req.params.id;
   database.findByIdAndDelete(base).then((err)=>{
     if(err){
-      res.redirect("/home");
+      return res.redirect("/home");
     }
-    database.find().then(()=>{
-      res.status(302);
-      res.redirect("/home");
-    })
+    res.redirect("/home");
   })
 }
 
