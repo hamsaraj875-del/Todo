@@ -14,8 +14,11 @@ body{
   color:white;
   font-size:25px;
   font-weight:bolder;
-  min-width:400px;
+  min-width:490px;
   border:2px solid white;
+}
+img{
+  width:300px;
 }
 .details{
   display:flex;
@@ -41,11 +44,6 @@ body{
   text-underline-offset:5px;
   text-shadow:0px 0px 8px rgb(105, 197, 255);
 }
-.deleteOrLogout{
-  min-width:200px;
-  min-height:200px;
-  margin-top:50px;
-}
 button:hover{
   background-color:rgb(248, 83, 29);
   color:black;
@@ -69,4 +67,44 @@ a{
   box-shadow:0px 1px 3px rgb(28, 255, 206),
   0px 6px 6px rgb(191, 255, 250);
   border-radius:20px;
+}
+@media(max-width:500px){
+  img{
+    width:240px;
+  }
+  .name{
+    font-size:50px;
+  }
+  .email{
+    font-size:20px;
+  }
+  .list{
+    font-size:20px;
+    min-width:340px;
+  }
+  .logout,.back,.deleteAll{
+    min-width:100px;
+    min-height:30px;
+  }
+
+}
+@media(max-width:420px){
+  img{
+    width:200px;
+  }
+  .name{
+    font-size:50px;
+  }
+  .email{
+    font-size:15px;
+  }
+  .list{
+    font-size:18px;
+    min-width:300px;
+  }
+  .logout,.back,.deleteAll{
+    min-width:80px;
+    min-height:30px;
+  }
+  
 }
