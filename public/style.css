@@ -23,11 +23,14 @@ body{
   min-height:45px;
   border:none;
   background-color:rgba(243, 238, 238,0);
+  transition-duration:0.3s;
 }
 .btnActive:hover{
+  transform:scale(1.1);
   background-color:rgba(243, 238, 238,0.3);
 }
 .btn:hover{
+  transform:scale(1.1);
   background-color:rgba(243, 238, 238,0.3);
 }
 .btnActive{
@@ -81,7 +84,7 @@ body{
   font-style:italic;
   color:rgb(0, 217, 255);
 }
-hr{
+.mainHr{
   width:100%;
   border:none;
   height:4px;
@@ -178,11 +181,12 @@ hr{
 }
 
 .form{
-  min-width:400px;
+  width:100%;
+  min-height:100vh; /* 🔥 important */
   display:flex;
   justify-content:center;
   align-items:center;
-  margin:5rem;
+  margin:0; /* remove 5rem */
 }
 input[type="file"]{
   width:250px;
@@ -199,10 +203,10 @@ input[type="file"]{
   align-items:center;
   gap:10px;
 }
-.accountImage{
-  width:60px;
-  height:60px;
-  margin-top:16px;
+#accountImage{
+  width:40px;
+  height:40px;
+  margin-top:22px;
 }
 .file{
   margin:15px 0px 0px 8px;
@@ -221,10 +225,6 @@ input[type="file"]{
 }
 
 form{ 
-  margin-top:10px;
-  font-size:25px;
-  min-width:400px;
-  min-height:550px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -232,8 +232,8 @@ form{
 }
 .Details{
   font-size:40px;
-  min-width:400px;
-  min-height:600px;
+  width:400px;
+  height:600px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -251,7 +251,7 @@ input{
   background-color:rgba(206, 252, 162,0);
   font-size:20px;
   font-weight:bolder;
-  color:grey;
+  color:black;
 }
 textarea{
   font-size:20px;
@@ -264,13 +264,10 @@ textarea{
 input[type="submit"]{
   background-color:rgb(153, 250, 188);
 }
-.ai{
-  top:30%;
-}
 .contact{
   top:40%;
 }
-.ai,.contact{
+.contact{
   width:70px;
   font-size:35px;
   text-align:center;
@@ -289,20 +286,11 @@ input[type="submit"]{
   right:0;
   transition:width 0.5s ease;
 }
-.aiForm{
-  position:fixed;
-  top:40%;
-  right:0;
-  width:auto;
-}
-.ai:hover,.contact:hover{
+.contact:hover{
   min-height:50px;
   width:190px;
   font-size:24px;
   color:black;
-}
-.ai:hover::after{
-  content:"Assistant";
 }
 .contact:hover::after{
   content:" contact";
@@ -314,95 +302,60 @@ input[type="submit"]:hover{
 button{
   cursor:pointer;
 }
-
-.aiChat{
+.extension{
   display:none;
 }
-.aiChatActive{
-  position:fixed;
-  bottom:20px;
-  right:20px;
+.extensionActive{
   display:flex;
   flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  top:25%;
+  right:0;
+  border:1px solid white;
   background-color:black;
-  width:600px;
-  min-height:400px;
-  border:3px solid white;
-  padding:10px;
+  color:white;
+  width:150px;
+  min-height:300px;
+  position:absolute;
+  min-height:auto;
   z-index:1;
 }
-.aiHead{
-  text-align:center;
-  justify-content:center;
-  width:590px;
-  height:50px;
-  font-family:cursive;
-  color:white;
-  border:4px solid white;
-  border-radius:15px;
-  font-size:25px;
-  text-decoration:underline;
-  text-decoration-color:white;
-  text-shadow:0px 0px 5px white;
-}
-.aiOutput{
-  margin-top:10px;
-  width:570px;
-  min-height:300px;
-  max-height:300px;
-  overflow-y:auto;
-  border:1px solid white;
-  color:white;
-  border-radius:15px;
-  font-size:20px;
-  font-style:italic;
-  padding:15px;
-}
-.aiInput {
-  max-width: 600px;
-  min-height:100px;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.Input {
-  display: flex;
+.hr{
+  background-color:white;
+  height:1px;
   width:100%;
-  align-items: center;
-  background: #1e1e1e;
-  border:1px solid white;
-  border-radius: 25px;
-  padding: 5px;
-  gap: 8px;
 }
-
-.userQuery {
-  flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-  color: white;
-  font-size: 25px;
-  padding: 10px;
-  margin:0;
+button{
+  border:none;
 }
-
-.aiAns {
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 22px;
-  background: linear-gradient(45deg, #4285F4, #00C6FF);
-  color: white;
-  cursor: pointer;
-  transition: 0.2s;
+.next{
+  min-height:30px;
+  background-color:black;
+  color:white;
 }
-
-.aiAns:hover {
-  transform: scale(1.1);
+.next:hover{
+  background-color:rgb(255, 98, 0);
+  border-radius:15px;
+  border:1px solid black;
 }
-
+.optionerDiv{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.increase{
+  transition:0.3s all;
+}
+.increase:hover{
+  transform:scale(1.2);
+}
+#optioner{
+  margin-top:10px;
+  font-size:26px;
+  background:transparent;
+}
 @keyframes move-Gradient{
   0%{
     background-position:0%;
@@ -464,5 +417,22 @@ button{
   .icon{
     display:inline;
     font-size:25px;
+  }
+  .hidden{
+    display:none;
+  }
+  form{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+  }
+  input{
+    min-width:150px;
+    min-height:30px;
+    background-color:rgba(206, 252, 162,0);
+    font-size:15px;
+    font-weight:bolder;
+    color:black;
   }
 }

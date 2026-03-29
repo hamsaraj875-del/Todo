@@ -23,29 +23,8 @@ function typeAnimation(){
   setTimeout(typeAnimation,delay);
 }
 
-const chat = document.querySelector(".aiChat");
-const chatBox = document.querySelector("#chatBox");
-const userQuery = document.querySelector(".userQuery");
-const aiAns = document.querySelector(".aiAns");
-async function aiWake(){
-  if(chat.classList.contains("aiChat")){
-    chat.classList.remove("aiChat");
-    chat.classList.add("aiChatActive");
-  }
-  else{
-    chat.classList.remove("aiChatActive");
-    chat.classList.add("aiChat");
-  }
+const opn = document.querySelector(".optionerDiv");
+const ext = document.querySelector(".extension");
+function Opener(){
+  ext.classList.toggle("extensionActive");
 }
-aiAns.addEventListener("click",()=>{
-  if(userQuery.value!=""){
-    if(chatBox.innerText !=""){
-      chatBox.innerText = chatBox.innerText+"\n"+userQuery.value;
-      aiResults(userQuery.value);
-    }else{
-      chatBox.innerText = userQuery.value;
-      aiResults(userQuery.value);
-    }
-    userQuery.value = "";
-  }
-});

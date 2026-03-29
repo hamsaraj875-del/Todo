@@ -17,15 +17,46 @@
       </div>
     </div>
     <div class="buttonDiv">
-      <a href="/"><button class="<%=page=='home' ? 'btnActive' : 'btn' %>"><span class="icon">🏠</span><span class="text">Home</span></button></a>
+      <a href="/" ><button class="<%=page=='home' ? 'btnActive' : 'btn' %>"><span class="icon">🏠</span><span class="text">Home</span></button></a>
       <a href="/add"><button class="<%=page=='add' ? 'btnActive' : 'btn' %>"><span class="icon">🆕</span><span class="text">Add</span></button></a>
-      <a href="/deleteAll"><button class="<%=page=='delete' ? 'btnActive' : 'btn' %>"><span class="icon">🗑️</span><span class="text">Delete All</span></button></a>
-      <a href="/logout"><button class="<%=page=='delete' ? 'btnActive' : 'btn' %>"><span class="icon">🔓</span><span class="text">Logout</span></button></a>
-      <div class="account">
+      <div class="hidden">
+        <a href="/deleteAll"><button class="<%=page=='delete' ? 'btnActive' : 'btn' %>"><span class="icon">🗑️</span><span class="text">Delete All</span></button></a>
+      </div>
+      <div class="hidden">
+        <a href="/logout"><button class="<%=page=='delete' ? 'btnActive' : 'btn' %>"><span class="icon">🔓</span><span class="text">Logout</span></button></a>
+      </div>
+      <div id="account" class="hidden">
         <a href="/account">
-        <img src="https://cdn-icons-png.flaticon.com/512/8345/8345328.png" alt="account" class="accountImage">
+        <img src="https://cdn-icons-png.flaticon.com/512/8345/8345328.png" alt="account" class="increase" id="accountImage">
         </a>
       </div>
+      <div class="optionerDiv">
+        <button id="optioner" class="increase" onclick="Opener()">☰</button>
+      </div>
+      <div class="extension">
+        <div class="account">
+          <a href="/account">
+          <img src="https://cdn-icons-png.flaticon.com/512/8345/8345328.png" alt="account" class="increase" id="accountImage">
+          </a>
+        </div>
+        <hr class="hr">
+        <div>
+          <a href="/"><button class="next">Home 🏠</button></a>
+        </div>
+        <hr class="hr">
+        <div>
+          <a href="/add"><button class="next">Add 🆕</button></a>
+        </div>
+        <hr class="hr">
+        <div>
+          <a href="/deleteAll"><button class="next">Delete History 🗑️</button></a>
+        </div>
+        <hr class="hr">
+        <div>
+          <a href="/logout"><button class="next">Logout 🔓</button></a>
+        </div>
+        <hr class="hr">
+      </div>
     </div>
-    <hr>
+    <hr class="mainHr">
   </div>
