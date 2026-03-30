@@ -43,9 +43,13 @@
             <input type="text" placeholder="Enter your otp(expires in 2 minutes)" name="otpp">
           </div>
         <%}%>
-        <a href="/login" id="back">↩ back</a>
+        <a href="/login" id="back">↩back</a>
         <div class="buttons">
-          <button type="submit" onclick="emailWait()" formaction="/OTP" id="otp"><span>Get OTP  </span><i class="fa-solid fa-right-to-bracket"></i></button>       
+          <%if(first){%>
+            <button type="submit" formaction="/OTP" id="otp"><span>Get OTP  </span><i class="fa-solid fa-right-to-bracket"></i></button> 
+          <%}else{%>
+            <button type="submit" formaction="/OTP" id="otpbtn"><span>Resend OTP</span><i class="fa-solid fa-right-to-bracket"></i></button>   
+          <%}%>   
           <button type="submit" formaction="/sign" value="Sign In"><span>Sign UP  </span><i class="fa-solid fa-right-to-bracket"></i></button>
         </div>
       </form>

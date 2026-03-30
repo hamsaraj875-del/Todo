@@ -16,7 +16,7 @@ exports.displayLogin = (req,res,next)=>{
 
 //Sign up handler
 exports.displaySignup = (req,res,next)=>{
-  res.render("sign",{otp:false});
+  res.render("sign",{otp:false,first:true});
 }
 
 //Input value checker of signup
@@ -172,12 +172,12 @@ exports.otp = async (req, res, next) => {
 `
     });
 
-
-    return res.render("sign", { otp: true ,countDown:true,oldInput:req.body});
+    console.log("yah its right!");
+    return res.render("sign", { otp: true ,first:false,oldInput:req.body});
 
   } catch (err) {
     err=["Something went wrong"];
-    return res.render("sign", { otp: false,oldInput:req.body,err });
+    return res.render("sign", { otp: false,wait:false,oldInput:req.body,err });
   }
 };
 
