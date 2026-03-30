@@ -126,15 +126,13 @@ function otpGenerator(){
 
 //OTP handler
 exports.otp = async (req, res, next) => {
-  console.log("🔥 OTP route hit");
 
-  const otpValue = Math.floor(100000 + Math.random() * 900000);
+  const otpValue = otpGenerator()
   req.session.otp = otpValue;
 
   const { email } = req.body;
 
   try {
-    console.log("before sending email");
 
     await sgMail.send({
       to: email,
@@ -174,13 +172,12 @@ exports.otp = async (req, res, next) => {
 `
     });
 
-    console.log("after sending email");
 
-    return res.render("sign", { otp: true });
+    return res.render("sign", { otp: true ,countDown:true,oldInput:req.body});
 
   } catch (err) {
-    console.log("❌ MAIL ERROR:", err);
-    return res.render("sign", { otp: false });
+    err=["Something went wrong"];
+    return res.render("sign", { otp: false,oldInput:req.body,err });
   }
 };
 

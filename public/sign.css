@@ -45,6 +45,12 @@ form{
   border-radius:10px;
   backdrop-filter:blur(5px);
 }
+#back{
+  color:rgb(38, 220, 252);
+  font-size:15px;
+  margin:8px;
+  font-family:sans-serif;
+}
 .errorBlock{
   min-width:550px;
   min-height:70px;

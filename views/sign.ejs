@@ -26,29 +26,31 @@
           </div>
         <%}%>
         <div class="firstAndSecond">
-          <input type="text" placeholder="Enter your first Name" name="firstName" value="<%=typeof error!='undefined'?oldInput.firstName:'' %>" required>
-          <input type="text" placeholder="Enter your second Name (Optional)" name="secondName" value="<%=typeof error!='undefined'?oldInput.secondName:'' %>" required>
+          <input type="text" placeholder="Enter your first Name" name="firstName" value="<%=typeof oldInput!='undefined'?oldInput.firstName:'' %>" required>
+          <input type="text" placeholder="Enter your second Name (Optional)" name="secondName" value="<%=typeof oldInput!='undefined'?oldInput.secondName:'' %>" required>
         </div>
         <div class="email">
-          <input type="email" placeholder="Enter your email" name="email" value="<%=typeof error!='undefined'?oldInput.email:'' %>" required>
+          <input type="email" placeholder="Enter your email" name="email" value="<%=typeof oldInput!='undefined'?oldInput.email:'' %>" required>
         </div>
         <div>
-          <input type="password" placeholder="Enter your password" name="password" value="<%=typeof error!='undefined'?oldInput.password:'' %>" required>
+          <input type="password" placeholder="Enter your password" name="password" value="<%=typeof oldInput!='undefined'?oldInput.password:'' %>" required>
         </div>
         <div>
-          <input type="password" placeholder="Confirm your password" name="confirmPassword" value="<%=typeof error!='undefined'?oldInput.password:'' %>" required>
+          <input type="password" placeholder="Confirm your password" name="confirmPassword" value="<%=typeof oldInput!='undefined'?oldInput.password:'' %>" required>
         </div>
         <%if(otp){%>
           <div>
-            <input type="text" placeholder="Enter your otp(expires in 2 minutes)" name="otpp" required>
+            <input type="text" placeholder="Enter your otp(expires in 2 minutes)" name="otpp">
           </div>
         <%}%>
+        <a href="/login" id="back">↩ back</a>
         <div class="buttons">
-          <button type="submit" formaction="/OTP" value="Sign In"><span>Get OTP  </span><i class="fa-solid fa-right-to-bracket"></i></button>       
+          <button type="submit" onclick="emailWait()" formaction="/OTP" id="otp"><span>Get OTP  </span><i class="fa-solid fa-right-to-bracket"></i></button>       
           <button type="submit" formaction="/sign" value="Sign In"><span>Sign UP  </span><i class="fa-solid fa-right-to-bracket"></i></button>
         </div>
       </form>
     </div>
   </div>
+  <script src="/loginScript.js"></script>
 </body>
 </html>

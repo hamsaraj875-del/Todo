@@ -2,6 +2,7 @@ const headName = document.querySelector(".name");
 const head = ["Welcome To Todo..."];
 let index = 0;
 let Adding =true;
+console.log('Okay you got a hit');
 typeAnimation();
 function typeAnimation(){
   delay=140;
