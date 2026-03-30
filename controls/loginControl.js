@@ -171,8 +171,6 @@ exports.otp = async (req, res, next) => {
   </div>
 `
     });
-
-    console.log("yah its right!");
     return res.render("sign", { otp: true ,first:false,oldInput:req.body});
 
   } catch (err) {

@@ -68,22 +68,20 @@ exports.delete=(req,res,next)=>{
 //editing of individual boxes
 exports.edit=(req,res,next)=>{
   const base = req.params.id;
-  database.findById(base).then((todoDetails),(err)=>{
-    if(err){
-      res.redirect("/home");
-    }
+  database.findById(base).then(todoDetails=>{
     let edit=true;
     res.render("add",{todoDetails,page:"add",edit});
+  }).catch(err=>{
+    console.log("error in the editing");
+    res.redirect("/home");
   })
 }
 
 //replacing the data in database
 exports.replace=(req,res,next)=>{
   const base = req.params.id;
-  console.log(base);
   const {todoName,date,time,description} = req.body;
   database.findById(base).then((list)=>{
-    console.log(list);
     if(!list){
       return res.redirect("/home");
     }
@@ -95,7 +93,6 @@ exports.replace=(req,res,next)=>{
       if(req.file){
         fs.unlink(path.join(__dirname,"..","uploads",list.fileName),(err)=>{
           if(err){
-            console.log('you got the error while deleting the previous file');
             return res.redirect("/home");
           }
         })
