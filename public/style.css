@@ -394,6 +394,7 @@ button{
     height:480px;
   }
   .todoName{
+    margin-top:16px;
     font-size:30px;
   }
   .cursor{
@@ -445,10 +446,16 @@ button{
   .image{
     height:70px;
   }
+  .dateAndTime{
+    font-size:18px;
+  }
 }
 @media(max-width:430px){
   .name{
     font-size:30px;
+  }
+  .dateAndTime{
+    font-size:18px;
   }
   .cursor{
     margin-top:3px;
@@ -459,6 +466,7 @@ button{
     height:420px;
   }
   .todoName{
+    margin-top:12px;
     font-size:30px;
   }
   .description{
