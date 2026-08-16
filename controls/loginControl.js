@@ -136,7 +136,7 @@ exports.otp = async (req, res, next) => {
 
     await sgMail.send({
       to: email,
-      from: "todo.aim.09@gmail.com", // MUST be verified
+      from: process.env.EMAIL, 
       subject: "Your OTP",
       html:`
   <div style="background-color:#f4f4f4; padding:20px;">
